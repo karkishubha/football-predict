@@ -1,0 +1,248 @@
+/* Dark Theme Variables */
+:root {
+    --dark-bg: #121212;
+    --dark-card-bg: #1e1e1e;
+    --dark-text-light: #e0e0e0;
+    --dark-text-muted: #a0a0a0;
+    --dark-box-shadow: rgba(0, 0, 0, 0.3);
+}
+
+/* Global Dark Theme Styles (for body and text) */
+body {
+    background-color: var(--dark-bg);
+    color: var(--dark-text-light);
+}
+
+/* Navigation Bar Styling */
+.nav-container {
+    background-color: var(--dark-card-bg);
+    box-shadow: 0 2px 5px var(--dark-box-shadow);
+}
+
+.nav-pills .nav-link {
+    color: var(--dark-text-muted);
+    transition: color 0.3s ease;
+}
+
+.nav-pills .nav-link:hover {
+    color: var(--dark-text-light);
+}
+
+/* The active nav pill with yellow background */
+.nav-pills .nav-link.active {
+    background-color: #ffc107 !important;
+    color: #121212 !important;
+    font-weight: bold;
+}
+
+/* ---- Component-specific Dark Theme Styles ---- */
+
+/* Generic Card Styling */
+.card.bg-dark-card {
+    background-color: var(--dark-card-bg) !important;
+    border: none;
+    box-shadow: 0 10px 20px var(--dark-box-shadow);
+}
+
+/* Form Control (Input) Styling */
+.form-control-dark {
+    background-color: #2a2a2a;
+    color: var(--dark-text-light);
+    border: 1px solid #444;
+}
+
+.form-control-dark::placeholder {
+    color: var(--dark-text-muted);
+}
+
+/* Table Styling */
+.table {
+    --bs-table-bg: var(--dark-card-bg);
+    --bs-table-color: var(--dark-text-light);
+    --bs-table-border-color: #333;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.table thead th {
+    background-color: #212529;
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-color: #333;
+}
+
+/* Table Hover and Striped Effects */
+.table-dark-hover tbody tr:hover {
+    background-color: rgba(255, 193, 7, 0.1) !important;
+}
+
+.table-dark-striped tbody tr:nth-of-type(odd) {
+    background-color: #252525;
+}
+
+.table-dark-bordered > :not(caption) > * > * {
+    border-color: #444;
+}
+
+/* Custom Text Colors for better readability */
+.text-success-light {
+    color: #4CAF50 !important;
+}
+
+/* Home Page specific styles */
+.hero-section {
+    background: url('/static/images/back.jpg') center/cover no-repeat;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+.hero-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+.feature-card {
+    border-radius: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px var(--dark-box-shadow);
+}
+
+.feature-card.bg-dark-card {
+    background: var(--dark-card-bg);
+    border: 1px solid #333;
+}
+
+.text-muted-dark {
+    color: var(--dark-text-muted) !important;
+}
+/* ---- Predict Page Form and Alert Styling ---- */
+
+/* Form Styling */
+.bg-dark-card label {
+    color: var(--dark-text-light); /* Labels should be light colored */
+}
+
+.bg-dark-card input,
+.bg-dark-card select,
+.bg-dark-card textarea {
+    background-color: #2a2a2a; /* Dark background for inputs */
+    color: var(--dark-text-light); /* Light text for inputs */
+    border: 1px solid #444; /* Subtle border */
+    border-radius: 0.25rem;
+    padding: 0.375rem 0.75rem;
+}
+
+.bg-dark-card input::placeholder,
+.bg-dark-card textarea::placeholder {
+    color: var(--dark-text-muted); /* Placeholder text color */
+}
+
+/* Alert Styling for Dark Theme */
+.alert-dark-success {
+    background-color: #28a745; /* A vibrant green background */
+    color: #121212; /* Dark text for contrast */
+    border-color: #218838;
+}
+/* ---- Predict Page Form and Alert Styling ---- */
+
+/* Card with a Background Image */
+.card.bg-image-card {
+    background: url('/static/images/football-bg.jpg') center/cover no-repeat;
+    position: relative;
+    color: white;
+    overflow: hidden;
+    border: none; /* No border for a cleaner look */
+}
+
+/* Dark Overlay for the card */
+.card.bg-image-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.65);
+    border-radius: inherit;
+    z-index: 1;
+}
+
+.card.bg-image-card > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* Form Styling */
+.bg-image-card label {
+    color: var(--dark-text-light);
+}
+
+.bg-image-card input,
+.bg-image-card select,
+.bg-image-card textarea {
+    background-color: rgba(255, 255, 255, 0.15); /* Semi-transparent background */
+    color: var(--dark-text-light);
+    border: 1px solid #444;
+    border-radius: 0.25rem;
+    padding: 0.375rem 0.75rem;
+}
+
+.bg-image-card input::placeholder,
+.bg-image-card textarea::placeholder {
+    color: var(--dark-text-muted);
+}
+
+/* Alert Styling for Dark Theme */
+.alert-dark-success {
+    background-color: #28a745;
+    color: #121212;
+    border-color: #218838;
+}
+/* Styling to fix form field alignment and appearance */
+.g-4 input, 
+.g-4 select {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--dark-text-light);
+    background-color: #2a2a2a;
+    background-clip: padding-box;
+    border: 1px solid #444;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0.25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+/* ---- Player Detail Page List Styling ---- */
+.list-group-dark .list-group-item {
+    background-color: transparent;
+    border-color: #333;
+    color: var(--dark-text-light);
+}
+
+.list-group-dark .list-group-item strong {
+    color: var(--dark-text-light);
+}

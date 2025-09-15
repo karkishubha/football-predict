@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container my-5 text-light">
+    <div class="card bg-dark-card shadow-lg border-0 rounded-4 p-4">
+
+        <h1 class="text-center fw-bold mb-4 text-white">📋 Players</h1>
+
+        <form method="get" class="mb-3">
+            <div class="input-group">
+                <input type="text" name="search" class="form-control form-control-dark" placeholder="Search players by name, club, or nation">
+                <button class="btn btn-warning fw-semibold" type="submit">🔍 Search</button>
+            </div>
+        </form>
+
+        <div class="table-responsive">
+            <table class="table align-middle table-dark-striped table-dark-hover table-dark-bordered">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Club</th>
+                        <th>Nation</th>
+                        <th>Position</th>
+                        <th>Age</th>
+                        <th>Market Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for player in players %}
+                    <tr>
+                        <td>
+                            <a href="{% url 'player_detail' player.id %}" class="text-decoration-none fw-semibold text-warning">
+                                {{ player.player }}
+                            </a>
+                        </td>
+                        <td>{{ player.club }}</td>
+                        <td>{{ player.nation }}</td>
+                        <td>{{ player.pos }}</td>
+                        <td>{{ player.age }}</td>
+                        <td class="fw-bold text-success-light">{{ player.market_value }}</td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="6" class="text-center text-muted py-3">
+                            No players found.
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

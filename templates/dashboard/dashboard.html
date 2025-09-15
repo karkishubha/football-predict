@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container my-5 text-light">
+    
+    <div class="card bg-dark-card shadow-lg border-0 rounded-4 p-4">
+
+        <h3 class="fw-bold mb-3 text-white">Your Prediction History</h3>
+
+        {% if predictions %}
+        <div class="table-responsive">
+            <table class="table align-middle table-dark-striped table-dark-hover table-dark-bordered">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Player</th>
+                        <th>League</th>
+                        <th>Position</th>
+                        <th>Age</th>
+                        <th>Matches</th>
+                        <th>Goals</th>
+                        <th>Assists</th>
+                        <th>Predicted Value (€)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for p in predictions %}
+                    <tr>
+                        <td>{{ p.created_at|date:"M d, Y" }}</td>
+                        <td class="fw-semibold text-warning">{{ p.player_name }}</td>
+                        <td>{{ p.league }}</td>
+                        <td>{{ p.position }}</td>
+                        <td>{{ p.age }}</td>
+                        <td>{{ p.matches }}</td>
+                        <td>{{ p.goals }}</td>
+                        <td>{{ p.assists }}</td>
+                        <td class="fw-bold text-success-light">{{ p.predicted_value|floatformat:2 }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        
+        {% else %}
+        <p class="text-center text-muted py-3">No predictions yet.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

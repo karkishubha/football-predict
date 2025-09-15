@@ -1,0 +1,67 @@
+body {
+    background-color: #f8f9fa;
+}
+
+/* Main Card Styling */
+.card {
+    background: rgba(255, 255, 255, 0.95); /* slightly more opaque */
+    border-radius: 1rem;
+}
+
+/* Player Icon */
+.card img {
+    border-radius: 50%;
+    border: 3px solid #007bff;
+}
+
+/* Highlight Player Name */
+h1 {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+/* Market Value Badge */
+.badge {
+    font-size: 1.1rem;
+    border-radius: 0.5rem;
+}
+
+/* Section Card Styling */
+.card .card-body {
+    background-color: #f0f8ff; /* light blue background */
+    border-radius: 0.8rem;
+    padding: 1rem;
+}
+
+/* Optional: alternate colors for sections */
+.card.bg-light:nth-child(even) .card-body {
+    background-color: #fdf6f0; /* light peach */
+}
+
+/* List Group Styling */
+.list-group-item {
+    background-color: transparent;
+    border: none;
+    padding: 0.5rem 0;
+    font-size: 1rem;
+}
+
+/* Section Headers */
+h3 {
+    color: #212529;
+    font-weight: 600;
+}
+
+/* Back Button */
+.btn-secondary {
+    background-color: #6c757d;
+    border: none;
+    padding: 0.7rem 2rem;
+    font-size: 1rem;
+}
+
+/* Hover effect for cards */
+.card .card-body:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}

@@ -1,0 +1,75 @@
+/* Dark Theme Variables */
+:root {
+    --dark-bg: #121212;
+    --dark-card-bg: #1e1e1e;
+    --dark-text-light: #e0e0e0;
+    --dark-text-muted: #a0a0a0;
+    --dark-box-shadow: rgba(0, 0, 0, 0.3);
+}
+
+/* Card Styling */
+.card.bg-dark-card {
+    background-color: var(--dark-card-bg) !important;
+    border: none;
+    box-shadow: 0 10px 20px var(--dark-box-shadow);
+}
+
+/* Form Control Styling */
+.form-control-dark {
+    background-color: #2a2a2a;
+    color: var(--dark-text-light);
+    border: 1px solid #444;
+}
+
+.form-control-dark::placeholder {
+    color: var(--dark-text-muted);
+}
+
+/* Table Styling */
+.table {
+    --bs-table-bg: var(--dark-card-bg); /* Use the card background color */
+    --bs-table-color: var(--dark-text-light);
+    --bs-table-border-color: #333; /* Darker borders */
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+/* Table Head */
+.table thead th {
+    background-color: #212529; /* Dark head as per your original CSS */
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-color: #333;
+}
+
+/* Table Hover Effect */
+.table-dark-hover tbody tr:hover {
+    background-color: rgba(255, 193, 7, 0.1) !important; /* Lighter hover effect */
+}
+
+/* Table Striped Effect */
+.table-dark-striped tbody tr:nth-of-type(odd) {
+    background-color: #252525; /* Slightly darker than card bg */
+}
+
+/* Table Borders */
+.table-dark-bordered > :not(caption) > * > * {
+    border-color: #444;
+}
+
+/* Custom Text Colors */
+.text-success-light {
+    color: #4CAF50 !important; /* A light green for visibility on dark theme */
+}
+
+/* Search Button Styling */
+.input-group .btn-warning {
+    border-radius: 0 0.5rem 0.5rem 0;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-group .btn-warning:hover {
+    transform: translateY(-2px);
+    box-shadow: 0px 8px 15px rgba(255, 193, 7, 0.4);
+}

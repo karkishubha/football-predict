@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container my-5 text-light">
+    
+    <div class="card bg-dark-card shadow-lg border-0 rounded-4 p-4 text-center">
+
+        <img src="{% static 'images/player-icon.png' %}" 
+             alt="Player Icon" 
+             class="img-fluid mx-auto d-block mb-3"
+             style="width: 120px; height: 120px; object-fit: contain;">
+
+        <h1 class="fw-bold mb-4 text-white">
+            {{ player.player }} <span class="text-muted-dark">({{ player.club }})</span>
+        </h1>
+
+        <div class="mb-4">
+            <span class="badge bg-warning fs-5 px-3 py-2 shadow">
+                💰 Market Value: {{ player.market_value }}
+            </span>
+        </div>
+
+        <div class="row g-4 text-start">
+            
+            <div class="col-lg-6">
+                <div class="card bg-dark-card border-0 shadow-sm mb-4">
+                    <div class="card-body">
+                        <h3 class="h5 fw-bold mb-3 text-white">📋 Basic Info</h3>
+                        <ul class="list-group list-group-flush list-group-dark">
+                            <li class="list-group-item"><strong>Nation:</strong> {{ player.nation }}</li>
+                            <li class="list-group-item"><strong>Position:</strong> {{ player.pos }}</li>
+                            <li class="list-group-item"><strong>League:</strong> {{ player.league }}</li>
+                            <li class="list-group-item"><strong>Age:</strong> {{ player.age }}</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card bg-dark-card border-0 shadow-sm mb-4">
+                    <div class="card-body">
+                        <h3 class="h5 fw-bold mb-3 text-white">🎯 Passing</h3>
+                        <ul class="list-group list-group-flush list-group-dark">
+                            <li class="list-group-item">Passes Completed: {{ player.passes_completed }}</li>
+                            <li class="list-group-item">Passes Attempted: {{ player.passes_attempted }}</li>
+                            <li class="list-group-item">Completion %: {{ player.cmp_percent }}</li>
+                            <li class="list-group-item">Touches: {{ player.touches }}</li>
+                            <li class="list-group-item">Succ_Y: {{ player.succ_y }}</li>
+                            <li class="list-group-item">Att: {{ player.att }}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="card bg-dark-card border-0 shadow-sm mb-4">
+                    <div class="card-body">
+                        <h3 class="h5 fw-bold mb-3 text-white">⚽ Playing Stats</h3>
+                        <ul class="list-group list-group-flush list-group-dark">
+                            <li class="list-group-item">Matches Played: {{ player.mp }}</li>
+                            <li class="list-group-item">Starts: {{ player.starts }}</li>
+                            <li class="list-group-item">Minutes: {{ player.minutes }}</li>
+                            <li class="list-group-item">Goals: {{ player.goals }}</li>
+                            <li class="list-group-item">Assists: {{ player.assists }}</li>
+                            <li class="list-group-item">Goals/90: {{ player.gls_per90 }}</li>
+                            <li class="list-group-item">Assists/90: {{ player.ast_per90 }}</li>
+                            <li class="list-group-item">G+A: {{ player.g_plus_a }}</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card bg-dark-card border-0 shadow-sm mb-4">
+                    <div class="card-body">
+                        <h3 class="h5 fw-bold mb-3 text-white">🎯 Shooting</h3>
+                        <ul class="list-group list-group-flush list-group-dark">
+                            <li class="list-group-item">Shots: {{ player.sh }}</li>
+                            <li class="list-group-item">Shots on Target: {{ player.sot }}</li>
+                            <li class="list-group-item">Free Kicks: {{ player.fk }}</li>
+                            <li class="list-group-item">Shots on Target %: {{ player.sot_percent }}</li>
+                            <li class="list-group-item">Goals per Shot: {{ player.g_per_sh }}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card bg-dark-card border-0 shadow-sm mb-4 text-start">
+            <div class="card-body">
+                <h3 class="h5 fw-bold mb-3 text-white">🛡️ Defensive</h3>
+                <ul class="list-group list-group-flush list-group-dark">
+                    <li class="list-group-item">Tackles: {{ player.tackle }}</li>
+                    <li class="list-group-item">Tackles Won: {{ player.tackle_won }}</li>
+                    <li class="list-group-item">Pressures: {{ player.press }}</li>
+                    <li class="list-group-item">Blocks: {{ player.blocks }}</li>
+                    <li class="list-group-item">Interceptions: {{ player.interception }}</li>
+                    <li class="list-group-item">Clearances: {{ player.clearance }}</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card bg-dark-card border-0 shadow-sm mb-4 text-start">
+            <div class="card-body">
+                <h3 class="h5 fw-bold mb-3 text-white">📊 Miscellaneous</h3>
+                <p class="mb-0"># Players: {{ player.number_of_players }}</p>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <a href="{% url 'player_list' %}" class="btn btn-warning btn-lg rounded-pill">
+                ← Back to Players
+            </a>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

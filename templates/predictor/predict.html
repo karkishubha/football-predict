@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container my-5 text-light">
+    <div class="card bg-image-card shadow-lg border-0 rounded-4 p-4">
+        
+        <h2 class="text-center fw-bold mb-4 text-white">
+            ⚽ Predict Player Market Value
+        </h2>
+
+        <form method="post" class="row g-4">
+            {% csrf_token %}
+            
+            {% for field in form %}
+                <div class="col-md-6">
+                    <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
+                    {{ field }}
+                </div>
+            {% endfor %}
+
+            <div class="col-12 text-center mt-5">
+                <button type="submit" class="btn btn-warning btn-lg fw-semibold shadow">
+                    🚀 Predict
+                </button>
+            </div>
+        </form>
+
+        {% if predicted_value %}
+            <div class="alert alert-dark-success mt-4 text-center shadow-sm">
+                <h4 class="mb-0">
+                    🎯 Predicted Market Value: 
+                    <span class="fw-bold text-white">{{ predicted_value }}m</span>
+                </h4>
+            </div>
+        {% endif %}
+
+    </div>
+</div>
+{% endblock %}
