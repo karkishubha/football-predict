@@ -1,5 +1,6 @@
 from django import forms
 import math
+from .models import PredictionHistory
 
 
 LEAGUE_ARRAY = ['Ligue1', 'Premier League', 'Bundesliga', 'La Liga', float('nan'), 'Serie A']
@@ -17,3 +18,15 @@ class PlayerStatsForm(forms.Form):
     matches = forms.IntegerField(label="Matches Played")
     goals = forms.IntegerField(label="Goals")
     assists = forms.IntegerField(label="Assists")
+class PredictionUpdateForm(forms.ModelForm):
+    class Meta:
+        model = PredictionHistory
+        fields = [
+            "player_name",
+            "league",
+            "position",
+            "age",
+            "matches",
+            "goals",
+            "assists",
+        ]

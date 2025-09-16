@@ -1,14 +1,14 @@
 from django.shortcuts import render
 from .forms import PlayerStatsForm
 from players.models import Player
-from .models import PredictionHistory   # NEW: import PredictionHistory
+from .models import PredictionHistory   
 import joblib
 import pandas as pd
 import os
 from django.conf import settings
 
 
-# Load trained ML model
+
 model_path = os.path.join(settings.BASE_DIR, "predictor/model/market_value_model.pkl")
 model = joblib.load(model_path)
 
@@ -30,15 +30,15 @@ def predict_form(request):
             goals = form.cleaned_data["goals"]
             assists = form.cleaned_data["assists"]
 
-            # Initialize all columns with default values
+            
             data = {col: 0 for col in expected_columns}
 
-            # Set string columns to empty string if they exist in model
+           
             for col in ['Leauge', 'Pos', 'Nation']:
                 if col in data:
                     data[col] = ''
 
-            # Fill user inputs into correct columns
+           
             if 'MP' in data:
                 data['MP'] = matches
             if 'Gls' in data:
@@ -52,13 +52,13 @@ def predict_form(request):
             if 'Pos' in data:
                 data['Pos'] = position
 
-            # Create DataFrame with all expected columns
+           
             features_df = pd.DataFrame([data], columns=expected_columns)
 
-            # Predict market value
+            
             predicted_value = model.predict(features_df)[0]
 
-            # Save player record (your existing Player model)
+            
             Player.objects.create(
                 player=player_name,
                 league=league,
@@ -70,7 +70,7 @@ def predict_form(request):
                 market_value=predicted_value
             )
 
-            # Save prediction history (for dashboard)
+           
             if request.user.is_authenticated:
                 PredictionHistory.objects.create(
                     user=request.user,

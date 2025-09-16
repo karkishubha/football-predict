@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+
+{% block content %}
+<div class="container my-5 text-light">
+    <div class="card bg-dark-card shadow-lg border-0 rounded-4 p-4">
+        <h3 class="fw-bold mb-4 text-white">
+            Update Prediction for {{ prediction.player_name }}
+        </h3>
+
+        <form method="post" class="row g-4">
+            {% csrf_token %}
+            
+            <div class="col-md-6">
+                <label for="id_player_name" class="form-label">Player Name</label>
+                {{ form.player_name|add_class:"form-control bg-dark text-light border-secondary" }}
+            </div>
+
+            <div class="col-md-6">
+                <label for="id_league" class="form-label">League</label>
+                {{ form.league|add_class:"form-select bg-dark text-light border-secondary" }}
+            </div>
+
+            <div class="col-md-6">
+                <label for="id_position" class="form-label">Position</label>
+                {{ form.position|add_class:"form-select bg-dark text-light border-secondary" }}
+            </div>
+
+            <div class="col-md-6">
+                <label for="id_age" class="form-label">Age</label>
+                {{ form.age|add_class:"form-control bg-dark text-light border-secondary" }}
+            </div>
+
+            <div class="col-md-4">
+                <label for="id_matches" class="form-label">Matches</label>
+                {{ form.matches|add_class:"form-control bg-dark text-light border-secondary" }}
+            </div>
+
+            <div class="col-md-4">
+                <label for="id_goals" class="form-label">Goals</label>
+                {{ form.goals|add_class:"form-control bg-dark text-light border-secondary" }}
+            </div>
+
+            <div class="col-md-4">
+                <label for="id_assists" class="form-label">Assists</label>
+                {{ form.assists|add_class:"form-control bg-dark text-light border-secondary" }}
+            </div>
+
+            <div class="col-12 d-flex justify-content-between mt-4">
+                <a href="{% url 'dashboard' %}" class="btn btn-secondary">Cancel</a>
+                <button type="submit" class="btn btn-success">Recalculate Value</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

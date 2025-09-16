@@ -4,4 +4,3 @@ from . import views
 urlpatterns = [
     path("", views.predict_form, name="predict"),
 ]
-# from .forms import PlayerStatsForm

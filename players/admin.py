@@ -11,5 +11,4 @@ class PlayerAdmin(admin.ModelAdmin):
     ordering = ("player",)
     list_per_page = 50
 
-    # Optional: make fields read-only in admin if you don't want accidental edits
-    # readonly_fields = ("player", "club", "league")
+
